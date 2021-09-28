@@ -18,13 +18,12 @@ function Main() {
               <Text1>{data.text1} </Text1>
               <Text2>{data.text2}</Text2>
             </TextSection>
-
             <ImageSection>
               <Video
                 src={data.video}
-                width={index == 2 && 50}
-                left={index == 2 && 15}
-                top860={index == 2 && 10}
+                width={index == 2 && 50} //second video (fourth child)
+                left={index == 2 && 25}
+                top860={index == 2 && 10} //different devices, hard to align properly (pos abs)
                 width860={index == 2 && 40}
                 left860={index == 2 && 30}
                 top666={index == 2 && 15}

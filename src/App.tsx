@@ -1,4 +1,5 @@
-import React from "react";
+import Accordions from "./components/Accordions";
+import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
 import Main from "./components/Main";
 
@@ -7,6 +8,8 @@ function App() {
     <>
       <HomePage />
       <Main />
+      <Accordions />
+      <Footer />
     </>
   );
 }

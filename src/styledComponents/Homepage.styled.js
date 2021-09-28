@@ -10,7 +10,7 @@ export const Container = styled.div`
   background-color: black;
   border-bottom: 8px solid rgb(34, 34, 34);
   z-index: 1;
-
+  //top blurred black line
   &::before {
     content: "";
     position: absolute;
@@ -22,6 +22,8 @@ export const Container = styled.div`
     left: 0;
   }
 `;
+
+//background of homepage
 export const Banner = styled.img`
   position: absolute;
   top: 0;
@@ -33,28 +35,39 @@ export const Banner = styled.img`
   z-index: -5;
   opacity: 0.35;
 `;
+
+//header
 export const Header = styled.header`
   z-index: 1;
   position: relative;
-  width: 89%;
+  width: 92%;
   margin: 0 auto;
   height: 12vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
+
+//Netflix logo
 export const NetflixLogo = styled.img`
   position: relative;
   max-width: 100%;
-  width: calc(5vw + 50px);
+  width: calc(6vw + 50px);
+  @media screen and (max-width: 450px) {
+    width: calc(10vw + 50px);
+  }
 `;
+
+//siginButton
 export const SignInButton = styled.button`
   cursor: pointer;
   border: none;
-  padding: 0.4rem 0.8rem;
+  padding: 0.5rem 1.1rem;
+  transform: translate(3.2px, -2.9px);
   color: white;
   background-color: rgb(229, 10, 20);
   border-radius: 4px;
+  font-size: 16px;
   &:hover {
     cursor: pointer;
   }
@@ -63,6 +76,7 @@ export const SignInButton = styled.button`
   }
 `;
 
+//Text
 export const TextContainer = styled.div`
   margin: 6rem auto 0 auto;
   position: relative;
@@ -70,33 +84,70 @@ export const TextContainer = styled.div`
   display: flex;
   flex: 0.7rem;
   flex-direction: column;
-
-  justify-content: space-evenly;
+  justify-content: center;
   @media screen and (max-width: 700px) {
     width: 90%;
     flex: 100px;
-  } ;
+  }
+  @media screen and (max-width: 450px) {
+    margin-top: 0;
+  }
 `;
+
+//texts with different sizes, line-heights, by using props
 export const Text = styled.h1`
+  position: relative;
+  &:first-child {
+    padding-top: 2.5rem;
+  }
+  &:nth-child(2) {
+    font-size: 24px;
+    line-height: 61px;
+    letter-spacing: 0.02rem;
+    @media screen and (max-width: 450px) {
+      font-size: 18px;
+    }
+  }
+  &:nth-child(3) {
+    line-height: 25px;
+    padding-left: 0.6rem;
+    font-size: 21px;
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+    @media screen and (max-width: 450px) {
+      font-size: 16px;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  }
   margin-bottom: 0.1rem;
   text-align: center;
   font-size: ${(props) => props.fontSize}px;
   color: white;
-  line-height: ${(props) => props.lineHeight || 55}px;
+  line-height: ${(props) => props.lineHeight || 53}px;
   font-family: sans-serif;
   @media screen and (max-width: 700px) {
     margin-bottom: 1rem;
     font-size: ${(props) => props.mobileSize}px;
-    line-height: ${(props) => props.moblineHeight || 20}px;
+    line-height: ${(props) => props.mobileHeight || 20}px;
+  }
+
+  @media screen and (max-width: 450px) {
+    padding-top: 0rem;
+    font-size: ${(props) => props.ixSize}px;
+    line-height: 30px;
   }
 `;
 
+//flex container
 export const Flex = styled.div`
+  padding-left: 1rem;
   position: relative;
   display: flex;
   justify-content: center;
-  width: 70%;
-  max-width: 600px;
+  width: 80%;
+  max-width: 970px;
   margin: 0 auto;
 
   @media screen and (max-width: 900px) {
@@ -107,24 +158,30 @@ export const Flex = styled.div`
 `;
 
 export const Input = styled.input`
-  width: 70%;
-  padding: 1rem;
+  flex: 0.6;
+  padding: 1.5rem;
+  margin-top: 5px;
+  padding-top: 1.3rem;
+  padding-left: 0.8rem;
   outline: none;
   border: none;
   &::-webkit-input-placeholder {
-    transition: ease-in 0.3s;
+    transition: linear 0.1s;
+    font-size: 16px;
   }
 
-  &::placeholder {
-  }
   &:focus::placeholder {
-    transform: translateY(-140%);
-    font-size: 10px;
+    transform: translateY(-120%) translateX(-0.6%);
+    font-size: 13px;
   }
   @media screen and (max-width: 900px) {
-    width: 95%;
+    width: 60%;
     margin: 0 auto;
     margin-bottom: 1rem;
+  }
+  @media screen and (max-width: 450px) {
+    width: 90%;
+    padding: 1rem;
   }
 `;
 
@@ -132,12 +189,13 @@ export const GetStartedButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.6rem;
+  padding: 0.6rem 2rem;
   border: none;
   cursor: pointer;
   color: white;
+  margin-top: 5px;
   background-color: hsl(357, 91.6%, 46.9%);
-  font-size: 21px;
+  font-size: 25px;
   &:hover {
     background-color: hsl(357, 91.6%, 50.9%);
   }
