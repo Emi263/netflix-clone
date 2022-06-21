@@ -7,13 +7,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [15.x]
     steps: #actions on pr or push to main
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Setup
         uses: actions/setup-node@v2
-        with:
-          node-version: "16"
+
       - run: npm install
       - run: npm run build
